@@ -1,5 +1,4 @@
 package vista;
-
 import java.awt.BorderLayout;
 import java.awt.FlowLayout;
 
@@ -11,54 +10,58 @@ import javax.swing.border.EmptyBorder;
 import controlador.ClienteControlador;
 import controlador.ProductoControlador;
 
-import javax.swing.GroupLayout;
-import javax.swing.GroupLayout.Alignment;
+import javax.swing.JLabel;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+import java.awt.Font;
 
-public class ProduktuKudeaketa extends JDialog {
+//TODO claseari izena aldatu BigarrenLehioa beharrean BezeroKudeatzailea
+public class BezeroKudeatzailea extends JDialog {
 
 	private final JPanel contentPanel = new JPanel();
 
 	private ClienteControlador clienteControlador;
 	private ProductoControlador productoControlador;
-	
 	/**
 	 * Create the dialog.
 	 */
-	public ProduktuKudeaketa() {
+	public BezeroKudeatzailea() {
 		setBounds(100, 100, 450, 300);
 		getContentPane().setLayout(new BorderLayout());
 		contentPanel.setBorder(new EmptyBorder(5, 5, 5, 5));
 		getContentPane().add(contentPanel, BorderLayout.CENTER);
+		contentPanel.setLayout(null);
 		
-		JButton produktuBerria = new JButton("Produktu berria");
-		GroupLayout gl_contentPanel = new GroupLayout(contentPanel);
-		gl_contentPanel.setHorizontalGroup(
-			gl_contentPanel.createParallelGroup(Alignment.LEADING)
-				.addGroup(gl_contentPanel.createSequentialGroup()
-					.addGap(161)
-					.addComponent(produktuBerria))
-		);
-		gl_contentPanel.setVerticalGroup(
-			gl_contentPanel.createParallelGroup(Alignment.LEADING)
-				.addGroup(gl_contentPanel.createSequentialGroup()
-					.addGap(79)
-					.addComponent(produktuBerria))
-		);
-		contentPanel.setLayout(gl_contentPanel);
+		JButton btnBezeroak = new JButton("Bezeroak");
+		btnBezeroak.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+			}
+		});
+		btnBezeroak.setBounds(133, 86, 137, 23);
+		contentPanel.add(btnBezeroak);
+		
+		JButton btnConsulta = new JButton("Kontsulta");
+		btnConsulta.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
+		btnConsulta.setBounds(133, 146, 137, 23);
+		contentPanel.add(btnConsulta);
+		
+		JLabel lblBigarrenLeihoa = new JLabel("Bezero Kudeatzailea:");
+		lblBigarrenLeihoa.setFont(new Font("Tahoma", Font.BOLD, 17));
+		lblBigarrenLeihoa.setBounds(126, 30, 218, 20);
+		contentPanel.add(lblBigarrenLeihoa);
 	}
-
 	public ClienteControlador getClienteControlador() {
 		return clienteControlador;
 	}
-
 	public void setClienteControlador(ClienteControlador clienteControlador) {
 		this.clienteControlador = clienteControlador;
 	}
-
 	public ProductoControlador getProductoControlador() {
 		return productoControlador;
 	}
-
 	public void setProductoControlador(ProductoControlador productoControlador) {
 		this.productoControlador = productoControlador;
 	}

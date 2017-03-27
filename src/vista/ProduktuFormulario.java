@@ -6,6 +6,10 @@ import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import controlador.ClienteControlador;
+import controlador.ProductoControlador;
+
 import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
 import javax.swing.JLabel;
@@ -21,19 +25,8 @@ public class ProduktuFormulario extends JDialog {
 	private JTextField textFieldNombre;
 	private JTextField textFieldPrecio;
 
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		try {
-			ProduktuFormulario dialog = new ProduktuFormulario();
-			dialog.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
-			dialog.setVisible(true);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-	}
-
+	private ClienteControlador clienteControlador;
+	private ProductoControlador productoControlador;
 	/**
 	 * Create the dialog.
 	 */
@@ -129,4 +122,17 @@ public class ProduktuFormulario extends JDialog {
 			}
 		}
 	}
+	public ClienteControlador getClienteControlador() {
+		return clienteControlador;
+	}
+	public void setClienteControlador(ClienteControlador clienteControlador) {
+		this.clienteControlador = clienteControlador;
+	}
+	public ProductoControlador getProductoControlador() {
+		return productoControlador;
+	}
+	public void setProductoControlador(ProductoControlador productoControlador) {
+		this.productoControlador = productoControlador;
+	}
+	
 }

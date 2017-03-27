@@ -6,6 +6,10 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import controlador.ClienteControlador;
+import controlador.ProductoControlador;
+
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import java.awt.Font;
@@ -13,23 +17,9 @@ import java.awt.Font;
 public class Nagusia extends JFrame {
 
 	private JPanel contentPane;
-
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					Nagusia frame = new Nagusia();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
-
+	
+	private ClienteControlador clienteControlador;
+	private ProductoControlador productoControlador;
 	/**
 	 * Create the frame.
 	 */
@@ -54,4 +44,17 @@ public class Nagusia extends JFrame {
 		lblBiltegia.setBounds(173, 25, 136, 14);
 		contentPane.add(lblBiltegia);
 	}
+	public ClienteControlador getClienteControlador() {
+		return clienteControlador;
+	}
+	public void setClienteControlador(ClienteControlador clienteControlador) {
+		this.clienteControlador = clienteControlador;
+	}
+	public ProductoControlador getProductoControlador() {
+		return productoControlador;
+	}
+	public void setProductoControlador(ProductoControlador productoControlador) {
+		this.productoControlador = productoControlador;
+	}
+	
 }
