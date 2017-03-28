@@ -24,8 +24,8 @@ import java.awt.event.ActionEvent;
 public class BezeroFormulario extends JDialog {
 
 	private final JPanel contentPanel = new JPanel();
-	private JTextField textField_nombre;
 	private JTextField textField;
+	private JTextField textField_Nombre;
 	private JTextField textField_telefono;
 	private JTextField textField_direccion;
 	private JTextField textField_codPostal;
@@ -35,7 +35,10 @@ public class BezeroFormulario extends JDialog {
 	/**
 	 * Create the dialog.
 	 */
-	public BezeroFormulario() {
+	public BezeroFormulario(JDialog parent,boolean modal) {
+		
+		super(parent,modal);
+		
 		setBounds(100, 100, 450, 300);
 		getContentPane().setLayout(new BorderLayout());
 		contentPanel.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -56,13 +59,13 @@ public class BezeroFormulario extends JDialog {
 		JLabel label_codPostal = new JLabel("codPostal");
 		label_codPostal.setHorizontalAlignment(SwingConstants.CENTER);
 		
-		textField_nombre = new JTextField();
-		textField_nombre.setHorizontalAlignment(SwingConstants.CENTER);
-		textField_nombre.setColumns(10);
-		
 		textField = new JTextField();
 		textField.setHorizontalAlignment(SwingConstants.CENTER);
 		textField.setColumns(10);
+		
+		textField_Nombre = new JTextField();
+		textField_Nombre.setHorizontalAlignment(SwingConstants.CENTER);
+		textField_Nombre.setColumns(10);
 		
 		textField_telefono = new JTextField();
 		textField_telefono.setColumns(10);
@@ -73,13 +76,19 @@ public class BezeroFormulario extends JDialog {
 		textField_codPostal = new JTextField();
 		textField_codPostal.setColumns(10);
 		
-		JComboBox comboBox_Bezero = new JComboBox();
+		JButton btnGuardar = new JButton("Guardar");
+		btnGuardar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				clienteControlador.guardarCliente(textField.getText(),textField_Nombre.getText(),textField_telefono.getText(),textField_direccion.getText(),textField_codPostal.getText());
+				clienteControlador.itxiBezeroFormulario();
+			}
+		});
 		GroupLayout gl_contentPanel = new GroupLayout(contentPanel);
 		gl_contentPanel.setHorizontalGroup(
 			gl_contentPanel.createParallelGroup(Alignment.LEADING)
 				.addGroup(gl_contentPanel.createSequentialGroup()
 					.addContainerGap()
-					.addGroup(gl_contentPanel.createParallelGroup(Alignment.LEADING)
+					.addGroup(gl_contentPanel.createParallelGroup(Alignment.TRAILING)
 						.addGroup(gl_contentPanel.createSequentialGroup()
 							.addGroup(gl_contentPanel.createParallelGroup(Alignment.LEADING)
 								.addComponent(label_codPostal)
@@ -93,25 +102,24 @@ public class BezeroFormulario extends JDialog {
 								.addComponent(textField_telefono, Alignment.TRAILING, GroupLayout.DEFAULT_SIZE, 354, Short.MAX_VALUE)
 								.addComponent(textField_codPostal, Alignment.TRAILING, GroupLayout.DEFAULT_SIZE, 354, Short.MAX_VALUE)
 								.addComponent(textField_direccion, GroupLayout.DEFAULT_SIZE, 354, Short.MAX_VALUE)
-								.addComponent(textField, GroupLayout.DEFAULT_SIZE, 354, Short.MAX_VALUE)
-								.addComponent(textField_nombre, GroupLayout.DEFAULT_SIZE, 354, Short.MAX_VALUE))
+								.addComponent(textField_Nombre, GroupLayout.DEFAULT_SIZE, 354, Short.MAX_VALUE)
+								.addComponent(textField, GroupLayout.DEFAULT_SIZE, 354, Short.MAX_VALUE))
 							.addContainerGap())
-						.addGroup(Alignment.TRAILING, gl_contentPanel.createSequentialGroup()
-							.addComponent(comboBox_Bezero, GroupLayout.PREFERRED_SIZE, 209, GroupLayout.PREFERRED_SIZE)
-							.addGap(103))))
+						.addGroup(gl_contentPanel.createSequentialGroup()
+							.addComponent(btnGuardar)
+							.addGap(33))))
 		);
 		gl_contentPanel.setVerticalGroup(
 			gl_contentPanel.createParallelGroup(Alignment.LEADING)
 				.addGroup(gl_contentPanel.createSequentialGroup()
-					.addComponent(comboBox_Bezero, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-					.addGap(10)
+					.addGap(30)
 					.addGroup(gl_contentPanel.createParallelGroup(Alignment.BASELINE)
 						.addComponent(label_id)
-						.addComponent(textField_nombre, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+						.addComponent(textField, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
 					.addPreferredGap(ComponentPlacement.RELATED)
 					.addGroup(gl_contentPanel.createParallelGroup(Alignment.BASELINE)
 						.addComponent(lblNombre)
-						.addComponent(textField, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+						.addComponent(textField_Nombre, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
 					.addPreferredGap(ComponentPlacement.RELATED)
 					.addGroup(gl_contentPanel.createParallelGroup(Alignment.BASELINE)
 						.addComponent(lblTelefono)
@@ -124,33 +132,11 @@ public class BezeroFormulario extends JDialog {
 					.addGroup(gl_contentPanel.createParallelGroup(Alignment.BASELINE)
 						.addComponent(label_codPostal)
 						.addComponent(textField_codPostal, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
-					.addContainerGap(64, Short.MAX_VALUE))
+					.addPreferredGap(ComponentPlacement.RELATED, 63, Short.MAX_VALUE)
+					.addComponent(btnGuardar)
+					.addContainerGap())
 		);
 		contentPanel.setLayout(gl_contentPanel);
-		{
-			JPanel buttonPane = new JPanel();
-			buttonPane.setLayout(new FlowLayout(FlowLayout.RIGHT));
-			getContentPane().add(buttonPane, BorderLayout.SOUTH);
-			{
-				JButton okButton = new JButton("OK");
-				okButton.addActionListener(new ActionListener() {
-					public void actionPerformed(ActionEvent arg0) {
-					}
-				});
-				okButton.setActionCommand("OK");
-				buttonPane.add(okButton);
-				getRootPane().setDefaultButton(okButton);
-			}
-			{
-				JButton cancelButton = new JButton("Cancel");
-				cancelButton.addActionListener(new ActionListener() {
-					public void actionPerformed(ActionEvent e) {
-					}
-				});
-				cancelButton.setActionCommand("Cancel");
-				buttonPane.add(cancelButton);
-			}
-		}
 	}
 	public ClienteControlador getClienteControlador() {
 		return clienteControlador;
@@ -164,5 +150,4 @@ public class BezeroFormulario extends JDialog {
 	public void setProductoControlador(ProductoControlador productoControlador) {
 		this.productoControlador = productoControlador;
 	}
-	
 }

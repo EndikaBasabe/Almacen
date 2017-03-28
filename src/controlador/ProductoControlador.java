@@ -4,6 +4,7 @@
 package controlador;
 
 import modelo.ClienteModelo;
+import modelo.Producto;
 import modelo.ProductoModelo;
 import vista.BezeroFormulario;
 import vista.BezeroKudeatzailea;
@@ -19,37 +20,20 @@ public class ProductoControlador {
 	
 	//TODO atributuak jarri
 	
-	private BezeroFormulario bezeroFormulario; 
-	private BezeroKudeatzailea bezeroKudeatzailea; 
 	private Nagusia nagusia;
 	private ProduktuFormulario produktuFormulario; 
 	private ProduktuKudeaketa produktuKudeaketa;
-	private ClienteModelo clienteModelo;
 	private ProductoModelo productoModelo; 
+	
+	
 	public void zabalduProduktuKudeatzailea(){
 		//TODO produktu kuedeatzailea leihoa zabaldu
-		
+		this.produktuKudeaketa.setVisible(true);
 	}
 	
 	public void zabalduProduktuFormularioa(){
 		//TODO produktu formularioa zabaldu
-		
-	}
-
-	public BezeroFormulario getBezeroFormulario() {
-		return bezeroFormulario;
-	}
-
-	public void setBezeroFormulario(BezeroFormulario bezeroFormulario) {
-		this.bezeroFormulario = bezeroFormulario;
-	}
-
-	public BezeroKudeatzailea getBezeroKudeatzailea() {
-		return bezeroKudeatzailea;
-	}
-
-	public void setBezeroKudeatzailea(BezeroKudeatzailea bezeroKudeatzailea) {
-		this.bezeroKudeatzailea = bezeroKudeatzailea;
+		this.produktuFormulario.setVisible(true);
 	}
 
 	public Nagusia getNagusia() {
@@ -76,14 +60,6 @@ public class ProductoControlador {
 		this.produktuKudeaketa = produktuKudeaketa;
 	}
 
-	public ClienteModelo getClienteModelo() {
-		return clienteModelo;
-	}
-
-	public void setClienteModelo(ClienteModelo clienteModelo) {
-		this.clienteModelo = clienteModelo;
-	}
-
 	public ProductoModelo getProductoModelo() {
 		return productoModelo;
 	}
@@ -91,6 +67,19 @@ public class ProductoControlador {
 	public void setProductoModelo(ProductoModelo productoModelo) {
 		this.productoModelo = productoModelo;
 	}
+
+	public void guardarProducto(String nombre, String proveedor, String precio, String existencias) {
+		
+		Producto producto = new Producto();
+		
+		
+//		producto.setNombre(nombre);
+//		producto.setProveedor(proveedor);
+//		producto.setPrecio(precio);
+//		producto.setExistencias(existencias);
+		
+	}
+
 
 	
 

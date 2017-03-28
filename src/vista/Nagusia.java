@@ -13,6 +13,8 @@ import controlador.ProductoControlador;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import java.awt.Font;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class Nagusia extends JFrame {
 
@@ -32,10 +34,20 @@ public class Nagusia extends JFrame {
 		contentPane.setLayout(null);
 		
 		JButton btnBezeroKudeatzailea = new JButton("Bezero Kudeatzailea");
+		btnBezeroKudeatzailea.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				clienteControlador.zabalduBezeroKuedeatzailea();
+			}
+		});
 		btnBezeroKudeatzailea.setBounds(132, 101, 177, 23);
 		contentPane.add(btnBezeroKudeatzailea);
 		
 		JButton btnProduktuKudeatzailea = new JButton("Produktu Kudeatzailea");
+		btnProduktuKudeatzailea.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				productoControlador.zabalduProduktuKudeatzailea();
+			}
+		});
 		btnProduktuKudeatzailea.setBounds(132, 160, 177, 23);
 		contentPane.add(btnProduktuKudeatzailea);
 		

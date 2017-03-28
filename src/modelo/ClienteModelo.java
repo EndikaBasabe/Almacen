@@ -5,6 +5,7 @@ package modelo;
 
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 
@@ -31,7 +32,7 @@ public class ClienteModelo extends Conector {
 		return clientes;
 	}
 
-	public Cliente select(int id) {
+	public Cliente select(String id) {
 		// TODO id hori duen cliente itzultzen du
 		try {
 						Statement st = this.conexion.createStatement();
@@ -45,21 +46,32 @@ public class ClienteModelo extends Conector {
 					return null;
 			 	}
 
-	public void update(Cliente cliente) {
+	public int update(Cliente cliente) {
 		// TODO clienteren id-a erabilita update egiten du
+		
+		try {
+			Statement st = super.getConexion().createStatement();
+			int lineascambiadas = st
+					.executeUpdate("UPDATE clientes " + "SET nombre='" + cliente.getNombre() + "'" + " WHERE id=" + cliente.getId());
+			return lineascambiadas;
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return 0;
 	}
 
 	public void insert(Cliente cliente) {
-		Statement st;
 		try {
-			st = super.getConexion().createStatement();
-			System.out.println("INSERT INTO socios (id,nombre,direccion,codPostal,telefono) " + "VALUES ('"
-					+ cliente.getId() + "','" + cliente.getNombre() + "','" + cliente.getDireccion() + "','"
-					+ cliente.getCodPostal() + "','" + cliente.getTelefono() + "')");
-			st.execute("INSERT INTO socios (id,nombre,direccion,codPostal,telefono) " + "VALUES ('" + cliente.getId()
-					+ "','" + cliente.getNombre() + "','" + cliente.getNombre() + "','" + cliente.getCodPostal() + "','"
-					+ cliente.getTelefono() + "')");
-		} catch (SQLException e) {
+			PreparedStatement ps = this.conexion.prepareStatement("insert into clientes(id,nombre,direccion,codPostal,telefono) values(?,?,?,?,?)");
+			ps.setString(1, cliente.getId());
+			ps.setString(2, cliente.getNombre());
+			ps.setString(3, cliente.getDireccion());
+			ps.setString(4, cliente.getCodPostal());
+			ps.setString(5, cliente.getTelefono());
+			
+			ps.execute();
+		}catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}

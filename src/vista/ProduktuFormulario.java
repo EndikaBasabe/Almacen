@@ -103,7 +103,7 @@ public class ProduktuFormulario extends JDialog {
 				JButton okButton = new JButton("Guardar");
 				okButton.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent arg0) {
-						//TODO
+						productoControlador.guardarProducto(textFieldNombre.getText(),textFieldProveedor.getText(),textFieldPrecio.getText(),textFieldNumExistencias.getText());
 					}
 				});
 				okButton.setActionCommand("OK");

@@ -13,7 +13,6 @@ import vista.ProduktuKudeaketa;
 public class Main {
 
 	public static void main(String[] args) {
-		//TODO ondorengo komentarioeta jartzen duena bete
 		
 		//kontroladore eta modeloen instantziak sortu
 		
@@ -23,9 +22,9 @@ public class Main {
 		ProductoModelo productoModelo = new ProductoModelo();
 		
 		//lehioak sortu
-		BezeroFormulario bezeroFormulario = new BezeroFormulario();
-		BezeroKudeatzailea bezeroKudeatzailea = new BezeroKudeatzailea();
 		Nagusia nagusia = new Nagusia();
+		BezeroKudeatzailea bezeroKudeatzailea = new BezeroKudeatzailea(nagusia,true);
+		BezeroFormulario bezeroFormulario = new BezeroFormulario(bezeroKudeatzailea,true);
 		ProduktuFormulario produktuFormulario = new ProduktuFormulario();
 		ProduktuKudeaketa produktuKudeaketa = new ProduktuKudeaketa();
 		//leihoei controladoreak ezarri
@@ -45,12 +44,12 @@ public class Main {
 		//controladoreei modelo eta lehioak ezarri
 		
 		clienteControlador.setClienteModelo(clienteModelo);
-		clienteControlador.setProductoModelo(productoModelo);
 		clienteControlador.setBezeroFormulario(bezeroFormulario);
 		clienteControlador.setBezeroKudeatzailea(bezeroKudeatzailea);
 		clienteControlador.setNagusia(nagusia);
-		clienteControlador.setProduktuFormulario(produktuFormulario);
-		clienteControlador.setProduktuKudeaketa(produktuKudeaketa);
+		
+		nagusia.setVisible(true);
+		
 		
 	}
 

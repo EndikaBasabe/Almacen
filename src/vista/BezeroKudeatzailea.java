@@ -4,6 +4,7 @@ import java.awt.FlowLayout;
 
 import javax.swing.JButton;
 import javax.swing.JDialog;
+import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
@@ -25,7 +26,9 @@ public class BezeroKudeatzailea extends JDialog {
 	/**
 	 * Create the dialog.
 	 */
-	public BezeroKudeatzailea() {
+	public BezeroKudeatzailea(JFrame parent,boolean modal) {
+		
+		super(parent,modal);
 		setBounds(100, 100, 450, 300);
 		getContentPane().setLayout(new BorderLayout());
 		contentPanel.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -35,6 +38,7 @@ public class BezeroKudeatzailea extends JDialog {
 		JButton btnBezeroak = new JButton("Bezeroak");
 		btnBezeroak.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
+				clienteControlador.zabalduBezeroFormularioa();
 			}
 		});
 		btnBezeroak.setBounds(133, 86, 137, 23);

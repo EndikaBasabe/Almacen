@@ -20,22 +20,20 @@ import vista.ProduktuKudeaketa;
 public class ClienteControlador {
 
 	//TODO atributuak jarri
-	BezeroFormulario bezeroFormulario = new BezeroFormulario();
-	BezeroKudeatzailea bezeroKudeatzailea = new BezeroKudeatzailea();
-	Nagusia nagusia = new Nagusia();
-	ProduktuFormulario produktuFormulario = new ProduktuFormulario();
-	ProduktuKudeaketa produktuKudeaketa = new ProduktuKudeaketa();
-	ClienteModelo clienteModelo = new ClienteModelo();
-	ProductoModelo productoModelo = new ProductoModelo();
+	BezeroFormulario bezeroFormulario;
+	BezeroKudeatzailea bezeroKudeatzailea;
+	Nagusia nagusia;
+	ClienteModelo clienteModelo;
+	
 	
 	public void zabalduBezeroKuedeatzailea(){
 		//TODO bezero kudeatzailea leihoa zabaldu
-		
+		this.bezeroKudeatzailea.setVisible(true);
 	}
 	
 	public void zabalduBezeroFormularioa(){
 		//TODO bezero formularioa zabaldu
-		
+		this.bezeroFormulario.setVisible(true);
 	}
 
 	public BezeroFormulario getBezeroFormulario() {
@@ -62,22 +60,6 @@ public class ClienteControlador {
 		this.nagusia = nagusia;
 	}
 
-	public ProduktuFormulario getProduktuFormulario() {
-		return produktuFormulario;
-	}
-
-	public void setProduktuFormulario(ProduktuFormulario produktuFormulario) {
-		this.produktuFormulario = produktuFormulario;
-	}
-
-	public ProduktuKudeaketa getProduktuKudeaketa() {
-		return produktuKudeaketa;
-	}
-
-	public void setProduktuKudeaketa(ProduktuKudeaketa produktuKudeaketa) {
-		this.produktuKudeaketa = produktuKudeaketa;
-	}
-
 	public ClienteModelo getClienteModelo() {
 		return clienteModelo;
 	}
@@ -86,12 +68,25 @@ public class ClienteControlador {
 		this.clienteModelo = clienteModelo;
 	}
 
-	public ProductoModelo getProductoModelo() {
-		return productoModelo;
+	public void itxiBezeroFormulario() {
+		// TODO Apéndice de método generado automáticamente
+		this.bezeroFormulario.dispose();
 	}
 
-	public void setProductoModelo(ProductoModelo productoModelo) {
-		this.productoModelo = productoModelo;
+	public void guardarCliente(String id, String nombre, String telefono, String direccion, String codPostal) {
+		
+		Cliente cliente = new Cliente();
+		
+		cliente.setId(id);
+		cliente.setNombre(nombre);
+		cliente.setTelefono(telefono);
+		cliente.setDireccion(direccion);
+		cliente.setCodPostal(codPostal);
+		this.clienteModelo.insert(cliente);
+		
 	}
+
+	
+
 	
 }
