@@ -26,6 +26,7 @@ public class BorrarCliente extends JDialog {
 
 	private final JPanel contentPanel = new JPanel();
 	private ClienteControlador clientecontrolador;
+	private JComboBox comboBoxBorrar;
 	
 
 	public BorrarCliente(JDialog parent,boolean modal) {
@@ -35,16 +36,19 @@ public class BorrarCliente extends JDialog {
 		getContentPane().setLayout(new BorderLayout());
 		contentPanel.setBorder(new EmptyBorder(5, 5, 5, 5));
 		getContentPane().add(contentPanel, BorderLayout.CENTER);
-		JComboBox comboBoxBorrar = new JComboBox();
+		
+		comboBoxBorrar = new JComboBox();
 		comboBoxBorrar.setBounds(149, 104, 219, 20);
+		
 		JLabel ElegirCliente = new JLabel("Elegir cliente :");
 		ElegirCliente.setBounds(58, 107, 81, 14);
 		ElegirCliente.setHorizontalAlignment(SwingConstants.CENTER);
+		
 		JButton btnBorrar = new JButton("Borrar");
-		btnBorrar.setBounds(164, 182, 63, 23);
+		btnBorrar.setBounds(122, 182, 88, 23);
 		btnBorrar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
+				clientecontrolador.borrarCliente();
 			}
 		});
 		contentPanel.setLayout(null);
@@ -56,8 +60,11 @@ public class BorrarCliente extends JDialog {
 		lblBorrarCliente.setFont(new Font("Traditional Arabic", Font.BOLD, 15));
 		lblBorrarCliente.setBounds(139, 33, 176, 14);
 		contentPanel.add(lblBorrarCliente);
+		
+		JButton btnCancelar = new JButton("Cancelar");
+		btnCancelar.setBounds(258, 182, 89, 23);
+		contentPanel.add(btnCancelar);
 	}
-
 
 	public ClienteControlador getClientecontrolador() {
 		return clientecontrolador;
@@ -67,6 +74,13 @@ public class BorrarCliente extends JDialog {
 	public void setClientecontrolador(ClienteControlador clientecontrolador) {
 		this.clientecontrolador = clientecontrolador;
 	}
-	
+
+
+	public void llenarCombo(ArrayList<Cliente> clientes) {
 		
+		for (Cliente cliente : clientes){
+			this.comboBoxBorrar.addItem(cliente.getId());
+		}
+		
+	}
 }

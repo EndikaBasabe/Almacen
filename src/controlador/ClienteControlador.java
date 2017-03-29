@@ -3,6 +3,8 @@
  */
 package controlador;
 
+import java.util.ArrayList;
+
 import modelo.Cliente;
 import modelo.ClienteModelo;
 import modelo.ProductoModelo;
@@ -97,7 +99,14 @@ public class ClienteControlador {
 	}
 
 	public void abrirBorrarFormulario() {
+		ArrayList<Cliente> clientes = this.clienteModelo.selectAll();
+		borrarCliente.llenarCombo(clientes);
+		
 		this.borrarCliente.setVisible(true);		
+	}
+
+	public void borrarCliente() {
+		
 	}
 
 	

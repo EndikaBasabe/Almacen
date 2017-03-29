@@ -41,22 +41,30 @@ public class BezeroKudeatzailea extends JDialog {
 				clienteControlador.zabalduBezeroFormularioa();
 			}
 		});
-		btnBezeroak.setBounds(133, 86, 137, 23);
+		btnBezeroak.setBounds(133, 94, 137, 23);
 		contentPanel.add(btnBezeroak);
 		
 		JButton btnConsulta = new JButton("Kontsulta");
 		btnConsulta.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				clienteControlador.abrirBorrarFormulario();
 			}
 		});
-		btnConsulta.setBounds(133, 146, 137, 23);
+		btnConsulta.setBounds(133, 162, 137, 23);
 		contentPanel.add(btnConsulta);
 		
 		JLabel lblBigarrenLeihoa = new JLabel("Bezero Kudeatzailea:");
 		lblBigarrenLeihoa.setFont(new Font("Tahoma", Font.BOLD, 17));
 		lblBigarrenLeihoa.setBounds(126, 30, 218, 20);
 		contentPanel.add(lblBigarrenLeihoa);
+		
+		JButton btnNewButton = new JButton("Ezabatu bezeroa");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				clienteControlador.abrirBorrarFormulario();
+			}
+		});
+		btnNewButton.setBounds(133, 128, 137, 23);
+		contentPanel.add(btnNewButton);
 	}
 	public ClienteControlador getClienteControlador() {
 		return clienteControlador;

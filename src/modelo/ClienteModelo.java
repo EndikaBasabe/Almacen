@@ -76,5 +76,15 @@ public class ClienteModelo extends Conector {
 			e.printStackTrace();
 		}
 	}
+	
+	public void delete(String id){
+		try {
+			Statement st = super.getConexion().createStatement();
+			st.execute("DELETE FROM clientes " + "WHERE id= ('" + id + "')");
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 
+	}
 }
