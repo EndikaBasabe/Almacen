@@ -8,6 +8,7 @@ import modelo.ClienteModelo;
 import modelo.ProductoModelo;
 import vista.BezeroFormulario;
 import vista.BezeroKudeatzailea;
+import vista.BorrarCliente;
 import vista.Nagusia;
 import vista.ProduktuFormulario;
 import vista.ProduktuKudeaketa;
@@ -24,7 +25,7 @@ public class ClienteControlador {
 	BezeroKudeatzailea bezeroKudeatzailea;
 	Nagusia nagusia;
 	ClienteModelo clienteModelo;
-	
+	BorrarCliente borrarCliente;
 	
 	public void zabalduBezeroKuedeatzailea(){
 		//TODO bezero kudeatzailea leihoa zabaldu
@@ -67,6 +68,15 @@ public class ClienteControlador {
 	public void setClienteModelo(ClienteModelo clienteModelo) {
 		this.clienteModelo = clienteModelo;
 	}
+	
+	
+	public BorrarCliente getBorrarCliente() {
+		return borrarCliente;
+	}
+
+	public void setBorrarCliente(BorrarCliente borrarCliente) {
+		this.borrarCliente = borrarCliente;
+	}
 
 	public void itxiBezeroFormulario() {
 		// TODO Apéndice de método generado automáticamente
@@ -84,6 +94,10 @@ public class ClienteControlador {
 		cliente.setCodPostal(codPostal);
 		this.clienteModelo.insert(cliente);
 		
+	}
+
+	public void abrirBorrarFormulario() {
+		this.borrarCliente.setVisible(true);		
 	}
 
 	

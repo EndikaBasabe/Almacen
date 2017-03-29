@@ -6,6 +6,7 @@ import modelo.ClienteModelo;
 import modelo.ProductoModelo;
 import vista.BezeroFormulario;
 import vista.BezeroKudeatzailea;
+import vista.BorrarCliente;
 import vista.Nagusia;
 import vista.ProduktuFormulario;
 import vista.ProduktuKudeaketa;
@@ -27,6 +28,7 @@ public class Main {
 		BezeroFormulario bezeroFormulario = new BezeroFormulario(bezeroKudeatzailea,true);
 		ProduktuFormulario produktuFormulario = new ProduktuFormulario();
 		ProduktuKudeaketa produktuKudeaketa = new ProduktuKudeaketa();
+		BorrarCliente borrarCliente = new BorrarCliente(bezeroKudeatzailea,true);
 		//leihoei controladoreak ezarri
 	
 		bezeroFormulario.setClienteControlador(clienteControlador);
@@ -39,7 +41,7 @@ public class Main {
 		produktuFormulario.setProductoControlador(productoControlador);
 		produktuKudeaketa.setClienteControlador(clienteControlador);
 		produktuKudeaketa.setProductoControlador(productoControlador);
-		
+		borrarCliente.setClientecontrolador(clienteControlador);
 		
 		//controladoreei modelo eta lehioak ezarri
 		
@@ -47,8 +49,11 @@ public class Main {
 		clienteControlador.setBezeroFormulario(bezeroFormulario);
 		clienteControlador.setBezeroKudeatzailea(bezeroKudeatzailea);
 		clienteControlador.setNagusia(nagusia);
+		clienteControlador.setBorrarCliente(borrarCliente);
+		
 		
 		nagusia.setVisible(true);
+		
 		
 		
 	}

@@ -47,6 +47,7 @@ public class BezeroKudeatzailea extends JDialog {
 		JButton btnConsulta = new JButton("Kontsulta");
 		btnConsulta.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				clienteControlador.abrirBorrarFormulario();
 			}
 		});
 		btnConsulta.setBounds(133, 146, 137, 23);
