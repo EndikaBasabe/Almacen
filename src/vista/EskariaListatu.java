@@ -65,13 +65,13 @@ public class EskariaListatu extends JDialog {
 		tablePedidos.addMouseListener(new MouseAdapter() {
 			public void mouseClicked(MouseEvent arg0) {
 				//taulatik zer lerro click-atu den jakin.
-				
+				int aukeratutakoLerroa = tablePedidos.getSelectedRow();
 			
 				//lerrotik, guk nahi ditugun zutabearen balioa jaso.
-				
-				
+				int idPedido = (int)tablePedidos.getModel().getValueAt(aukeratutakoLerroa, 0);
+				String idCliente = (String) tablePedidos.getModel().getValueAt(aukeratutakoLerroa, 1);
 				//pedido eta bezeroa erakutsi.(controlador)
-				
+				pedidoControlador.eskariarenDatuakErakutsi(idPedido,idCliente);
 				
 			}
 		});

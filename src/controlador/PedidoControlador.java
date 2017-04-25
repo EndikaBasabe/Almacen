@@ -51,6 +51,10 @@ public class PedidoControlador {
 		this.eskariaListatu.setVisible(true);
 		
 	}
+	public void eskariarenDatuakErakutsi(int idPedido, String idCliente) {
+	
+		
+	}
 	
 	
 }
