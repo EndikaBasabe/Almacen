@@ -1,4 +1,7 @@
 package modelo;
+
+import java.util.ArrayList;
+
 /**
  * 
  */
@@ -14,6 +17,7 @@ public class Cliente {
 	private String direccion;
 	private String codPostal;
 	private String telefono;
+	private ArrayList<Pedido> pedidos;
 
 	public Cliente() {
 		super();
@@ -56,6 +60,12 @@ public class Cliente {
 	}
 	public void setTelefono(String telefono) {
 		this.telefono = telefono;
+	}
+	public ArrayList<Pedido> getPedidos() {
+		return pedidos;
+	}
+	public void setPedidos(ArrayList<Pedido> pedidos) {
+		this.pedidos = pedidos;
 	}
 	
 	

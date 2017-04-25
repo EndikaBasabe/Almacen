@@ -8,6 +8,7 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
 import controlador.ClienteControlador;
+import controlador.PedidoControlador;
 import controlador.ProductoControlador;
 
 import javax.swing.JButton;
@@ -22,6 +23,7 @@ public class Nagusia extends JFrame {
 	
 	private ClienteControlador clienteControlador;
 	private ProductoControlador productoControlador;
+	private PedidoControlador pedidoControlador;
 	/**
 	 * Create the frame.
 	 */
@@ -55,6 +57,15 @@ public class Nagusia extends JFrame {
 		lblBiltegia.setFont(new Font("Times New Roman", Font.BOLD | Font.ITALIC, 18));
 		lblBiltegia.setBounds(173, 25, 136, 14);
 		contentPane.add(lblBiltegia);
+		
+		JButton buttonEskariKudeatzailea = new JButton("Eskari Kudeatzailea");
+		buttonEskariKudeatzailea.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				pedidoControlador.irekiEskariKudeatzailea();
+			}
+		});
+		buttonEskariKudeatzailea.setBounds(132, 212, 177, 23);
+		contentPane.add(buttonEskariKudeatzailea);
 	}
 	public ClienteControlador getClienteControlador() {
 		return clienteControlador;
@@ -67,6 +78,12 @@ public class Nagusia extends JFrame {
 	}
 	public void setProductoControlador(ProductoControlador productoControlador) {
 		this.productoControlador = productoControlador;
+	}
+	public PedidoControlador getPedidoControlador() {
+		return pedidoControlador;
+	}
+	public void setPedidoControlador(PedidoControlador pedidoControlador) {
+		this.pedidoControlador = pedidoControlador;
 	}
 	
 }
