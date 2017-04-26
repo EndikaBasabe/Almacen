@@ -18,7 +18,7 @@ public class Cliente {
 	private String codPostal;
 	private String telefono;
 	private ArrayList<Pedido> pedidos;
-
+	
 	public Cliente() {
 		super();
 		// TODO Auto-generated constructor stub

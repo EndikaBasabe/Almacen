@@ -4,6 +4,7 @@ import controlador.ClienteControlador;
 import controlador.PedidoControlador;
 import controlador.ProductoControlador;
 import modelo.ClienteModelo;
+import modelo.DetallesPedidoModelo;
 import modelo.PedidoModelo;
 import modelo.ProductoModelo;
 import vista.BezeroFormulario;
@@ -27,7 +28,7 @@ public class Main {
 		ClienteModelo clienteModelo = new ClienteModelo();
 		ProductoModelo productoModelo = new ProductoModelo();
 		PedidoModelo pedidoModelo = new PedidoModelo();
-		
+		DetallesPedidoModelo detallesPedidoModelo = new DetallesPedidoModelo();
 		//lehioak sortu
 		Nagusia nagusia = new Nagusia();
 		BezeroKudeatzailea bezeroKudeatzailea = new BezeroKudeatzailea(nagusia,true);
@@ -66,7 +67,7 @@ public class Main {
 		pedidoControlador.setEskariKudeatzailea(eskariKudeatzailea);
 		pedidoControlador.setEskariaListatu(eskariaListatu);
 		pedidoControlador.setPedidoModelo(pedidoModelo);
-		
+		pedidoControlador.setDetallesPedidoModelo(detallesPedidoModelo);
 		
 		nagusia.setVisible(true);
 		

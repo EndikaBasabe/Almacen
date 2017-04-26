@@ -2,6 +2,10 @@ package controlador;
 
 import java.util.ArrayList;
 
+import modelo.Cliente;
+import modelo.ClienteModelo;
+import modelo.DetallesPedido;
+import modelo.DetallesPedidoModelo;
 import modelo.Pedido;
 import modelo.PedidoModelo;
 import vista.EskariKudeatzailea;
@@ -14,7 +18,8 @@ public class PedidoControlador {
 	private EskariKudeatzailea eskariKudeatzailea;
 	private EskariaListatu eskariaListatu;
 	private PedidoModelo pedidoModelo;
-	
+	private ClienteModelo clienteModelo;
+	private DetallesPedidoModelo detallesPedidoModelo;
 	
 	public Nagusia getNagusia() {
 		return nagusia;
@@ -52,8 +57,20 @@ public class PedidoControlador {
 		
 	}
 	public void eskariarenDatuakErakutsi(int idPedido, String idCliente) {
-	
-		
+	//idPedidoarekin detalleak atera.
+		ArrayList<DetallesPedido> detallesPedido = detallesPedidoModelo.select(idPedido);
+	//idBezeroarekin bezeroaren datuak atera.
+		Cliente cliente = clienteModelo.select(idCliente);
+	//Bistaratu detalleak.
+		eskariaListatu.detallePedidoTablaBete(detallesPedido);
+	//Bistaratu bezeroak.
+		eskariaListatu.bezeroenTablaBete(cliente);
+	}
+	public DetallesPedidoModelo getDetallesPedidoModelo() {
+		return detallesPedidoModelo;
+	}
+	public void setDetallesPedidoModelo(DetallesPedidoModelo detallesPedidoModelo) {
+		this.detallesPedidoModelo = detallesPedidoModelo;
 	}
 	
 	

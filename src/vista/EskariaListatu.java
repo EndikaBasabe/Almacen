@@ -11,7 +11,9 @@ import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableRowSorter;
 
 import controlador.PedidoControlador;
+import modelo.Cliente;
 import modelo.ClienteModelo;
+import modelo.DetallesPedido;
 import modelo.Pedido;
 
 import javax.swing.JTable;
@@ -30,7 +32,7 @@ public class EskariaListatu extends JDialog {
 
 	private final JPanel contentPanel = new JPanel();
 	private JTable tablePedidos;
-	private JTable table_1;
+	private JTable tableDetallesPedido;
 	private JTextField textFieldNombre;
 	private JTextField textFieldDireccion;
 	private JTextField textFieldCodPostal;
@@ -86,8 +88,8 @@ public class EskariaListatu extends JDialog {
 		scrollPaneDetallesPedido.setBounds(340, 64, 259, 169);
 		contentPanel.add(scrollPaneDetallesPedido);
 		
-		table_1 = new JTable();
-		scrollPaneDetallesPedido.setViewportView(table_1);
+		tableDetallesPedido = new JTable();
+		scrollPaneDetallesPedido.setViewportView(tableDetallesPedido);
 		
 		JLabel lblDetallesPedido = new JLabel("DETALLES PEDIDO :");
 		lblDetallesPedido.setFont(new Font("Tahoma", Font.BOLD, 11));
@@ -171,5 +173,32 @@ public class EskariaListatu extends JDialog {
 		TableRowSorter<DefaultTableModel> ordenatuta;
 		ordenatuta = new TableRowSorter<DefaultTableModel>(defaultTableModel);
 		tablePedidos.setRowSorter(ordenatuta);
+	}
+
+
+	public void detallePedidoTablaBete(ArrayList<DetallesPedido> detallesPedido) {
+		DefaultTableModel defaultTableModel = new DefaultTableModel();
+		
+		Object[] cabecera = {"idPedido","idProducto","Cantidad"};
+		
+		defaultTableModel.setColumnIdentifiers(cabecera);
+		
+		for(DetallesPedido detallePedido : detallesPedido){
+			
+			Object[] lerroa = {detallePedido.getIdPedido(),detallePedido.getIdProducto(),detallePedido.getCantidad()};
+			
+			defaultTableModel.addRow(lerroa);
+		}
+		tableDetallesPedido.setModel(defaultTableModel);
+		
+		TableRowSorter<DefaultTableModel> ordenatuta;
+		ordenatuta = new TableRowSorter<DefaultTableModel>(defaultTableModel);
+		tableDetallesPedido.setRowSorter(ordenatuta);
+	}
+
+
+	public void bezeroenTablaBete(Cliente cliente) {
+		
+		
 	}
 }

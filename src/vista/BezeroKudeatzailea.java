@@ -65,6 +65,10 @@ public class BezeroKudeatzailea extends JDialog {
 		});
 		btnNewButton.setBounds(133, 128, 137, 23);
 		contentPanel.add(btnNewButton);
+		
+		JButton btnNewButton_1 = new JButton("New button");
+		btnNewButton_1.setBounds(161, 200, 89, 23);
+		contentPanel.add(btnNewButton_1);
 	}
 	public ClienteControlador getClienteControlador() {
 		return clienteControlador;
@@ -78,5 +82,4 @@ public class BezeroKudeatzailea extends JDialog {
 	public void setProductoControlador(ProductoControlador productoControlador) {
 		this.productoControlador = productoControlador;
 	}
-	
 }
