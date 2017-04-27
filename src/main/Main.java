@@ -68,6 +68,7 @@ public class Main {
 		pedidoControlador.setEskariaListatu(eskariaListatu);
 		pedidoControlador.setPedidoModelo(pedidoModelo);
 		pedidoControlador.setDetallesPedidoModelo(detallesPedidoModelo);
+		pedidoControlador.setClienteModelo(clienteModelo);
 		
 		nagusia.setVisible(true);
 		

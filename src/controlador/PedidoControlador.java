@@ -58,11 +58,11 @@ public class PedidoControlador {
 	}
 	public void eskariarenDatuakErakutsi(int idPedido, String idCliente) {
 	//idPedidoarekin detalleak atera.
-		ArrayList<DetallesPedido> detallesPedido = detallesPedidoModelo.select(idPedido);
+		ArrayList<DetallesPedido> detallespedido = detallesPedidoModelo.select(idPedido);
 	//idBezeroarekin bezeroaren datuak atera.
 		Cliente cliente = clienteModelo.select(idCliente);
 	//Bistaratu detalleak.
-		eskariaListatu.detallePedidoTablaBete(detallesPedido);
+		eskariaListatu.detallePedidoTablaBete(detallespedido);
 	//Bistaratu bezeroak.
 		eskariaListatu.bezeroenTablaBete(cliente);
 	}
@@ -71,6 +71,12 @@ public class PedidoControlador {
 	}
 	public void setDetallesPedidoModelo(DetallesPedidoModelo detallesPedidoModelo) {
 		this.detallesPedidoModelo = detallesPedidoModelo;
+	}
+	public ClienteModelo getClienteModelo() {
+		return clienteModelo;
+	}
+	public void setClienteModelo(ClienteModelo clienteModelo) {
+		this.clienteModelo = clienteModelo;
 	}
 	
 	

@@ -198,7 +198,10 @@ public class EskariaListatu extends JDialog {
 
 
 	public void bezeroenTablaBete(Cliente cliente) {
-		
+		this.textFieldNombre.setText(cliente.getNombre());
+		this.textFieldDireccion.setText(cliente.getDireccion());
+		this.textFieldTelefono.setText(cliente.getTelefono());
+		this.textFieldCodPostal.setText(cliente.getCodPostal());
 		
 	}
 }
