@@ -8,6 +8,7 @@ import modelo.DetallesPedido;
 import modelo.DetallesPedidoModelo;
 import modelo.Pedido;
 import modelo.PedidoModelo;
+import vista.BezeroarenEskariak;
 import vista.EskariKudeatzailea;
 import vista.EskariaListatu;
 import vista.Nagusia;
@@ -20,6 +21,7 @@ public class PedidoControlador {
 	private PedidoModelo pedidoModelo;
 	private ClienteModelo clienteModelo;
 	private DetallesPedidoModelo detallesPedidoModelo;
+	private BezeroarenEskariak bezeroarenEskariak;
 	
 	public Nagusia getNagusia() {
 		return nagusia;
@@ -56,6 +58,13 @@ public class PedidoControlador {
 		this.eskariaListatu.setVisible(true);
 		
 	}
+	
+	public BezeroarenEskariak getBezeroarenEskariak() {
+		return bezeroarenEskariak;
+	}
+	public void setBezeroarenEskariak(BezeroarenEskariak bezeroarenEskariak) {
+		this.bezeroarenEskariak = bezeroarenEskariak;
+	}
 	public void eskariarenDatuakErakutsi(int idPedido, String idCliente) {
 	//idPedidoarekin detalleak atera.
 		ArrayList<DetallesPedido> detallespedido = detallesPedidoModelo.select(idPedido);
@@ -78,6 +87,7 @@ public class PedidoControlador {
 	public void setClienteModelo(ClienteModelo clienteModelo) {
 		this.clienteModelo = clienteModelo;
 	}
+	
 	
 	
 }

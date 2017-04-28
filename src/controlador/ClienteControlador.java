@@ -7,9 +7,14 @@ import java.util.ArrayList;
 
 import modelo.Cliente;
 import modelo.ClienteModelo;
+import modelo.DetallesPedido;
+import modelo.DetallesPedidoModelo;
+import modelo.Pedido;
+import modelo.PedidoModelo;
 import modelo.ProductoModelo;
 import vista.BezeroFormulario;
 import vista.BezeroKudeatzailea;
+import vista.BezeroarenEskariak;
 import vista.BorrarCliente;
 import vista.Nagusia;
 import vista.ProduktuFormulario;
@@ -28,6 +33,9 @@ public class ClienteControlador {
 	Nagusia nagusia;
 	ClienteModelo clienteModelo;
 	BorrarCliente borrarCliente;
+	BezeroarenEskariak bezeroarenEskariak;
+	PedidoModelo pedidoModelo;
+	DetallesPedidoModelo detallesPedidoModelo;
 	
 	public void zabalduBezeroKuedeatzailea(){
 		//TODO bezero kudeatzailea leihoa zabaldu
@@ -37,6 +45,15 @@ public class ClienteControlador {
 	public void zabalduBezeroFormularioa(){
 		//TODO bezero formularioa zabaldu
 		this.bezeroFormulario.setVisible(true);
+	}
+
+	
+	public DetallesPedidoModelo getDetallesPedidoModelo() {
+		return detallesPedidoModelo;
+	}
+
+	public void setDetallesPedidoModelo(DetallesPedidoModelo detallesPedidoModelo) {
+		this.detallesPedidoModelo = detallesPedidoModelo;
 	}
 
 	public BezeroFormulario getBezeroFormulario() {
@@ -105,9 +122,42 @@ public class ClienteControlador {
 		this.borrarCliente.setVisible(true);		
 	}
 
-	public void borrarCliente() {
+	public PedidoModelo getPedidoModelo() {
+		return pedidoModelo;
+	}
+
+	public void setPedidoModelo(PedidoModelo pedidoModelo) {
+		this.pedidoModelo = pedidoModelo;
+	}
+
+	public BezeroarenEskariak getBezeroarenEskariak() {
+		return bezeroarenEskariak;
+	}
+
+	public void setBezeroarenEskariak(BezeroarenEskariak bezeroarenEskariak) {
+		this.bezeroarenEskariak = bezeroarenEskariak;
+	}
+
+	public void bezeroarenEskariakIreki() {
+		ArrayList<Cliente> clientes = this.clienteModelo.selectAll();
+		this.bezeroarenEskariak.bezeroenTaulaBete(clientes);
+		
+		this.bezeroarenEskariak.setVisible(true);
 		
 	}
+
+	public void pedidoakErakutsi(String idCliente, String nombre) {
+		ArrayList<Pedido> pedidos = this.pedidoModelo.seleccionarPedidosPorIdCliente(idCliente);
+		for(Pedido pedido : pedidos){
+			ArrayList<DetallesPedido> detallesPedidos = this.detallesPedidoModelo.select(pedido.getId());
+			pedido.setDetallesPedidos(detallesPedidos);
+		}
+		
+		bezeroarenEskariak.pedidoTablaBete(pedidos);
+		
+	}
+
+	
 
 	
 

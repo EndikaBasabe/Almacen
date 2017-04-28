@@ -9,6 +9,7 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
 import controlador.ClienteControlador;
+import controlador.PedidoControlador;
 import controlador.ProductoControlador;
 
 import javax.swing.JLabel;
@@ -23,6 +24,7 @@ public class BezeroKudeatzailea extends JDialog {
 
 	private ClienteControlador clienteControlador;
 	private ProductoControlador productoControlador;
+	private PedidoControlador pedidoControlador;
 	/**
 	 * Create the dialog.
 	 */
@@ -41,7 +43,7 @@ public class BezeroKudeatzailea extends JDialog {
 				clienteControlador.zabalduBezeroFormularioa();
 			}
 		});
-		btnBezeroak.setBounds(133, 94, 137, 23);
+		btnBezeroak.setBounds(133, 94, 160, 23);
 		contentPanel.add(btnBezeroak);
 		
 		JButton btnConsulta = new JButton("Kontsulta");
@@ -49,7 +51,7 @@ public class BezeroKudeatzailea extends JDialog {
 			public void actionPerformed(ActionEvent e) {
 			}
 		});
-		btnConsulta.setBounds(133, 162, 137, 23);
+		btnConsulta.setBounds(133, 162, 160, 23);
 		contentPanel.add(btnConsulta);
 		
 		JLabel lblBigarrenLeihoa = new JLabel("Bezero Kudeatzailea:");
@@ -63,12 +65,17 @@ public class BezeroKudeatzailea extends JDialog {
 				clienteControlador.abrirBorrarFormulario();
 			}
 		});
-		btnNewButton.setBounds(133, 128, 137, 23);
+		btnNewButton.setBounds(133, 128, 160, 23);
 		contentPanel.add(btnNewButton);
 		
-		JButton btnNewButton_1 = new JButton("New button");
-		btnNewButton_1.setBounds(161, 200, 89, 23);
-		contentPanel.add(btnNewButton_1);
+		JButton buttonBezeroEskariakIkusi = new JButton("Bezeroen Eskariak");
+		buttonBezeroEskariakIkusi.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				clienteControlador.bezeroarenEskariakIreki();
+			}
+		});
+		buttonBezeroEskariakIkusi.setBounds(133, 200, 160, 23);
+		contentPanel.add(buttonBezeroEskariakIkusi);
 	}
 	public ClienteControlador getClienteControlador() {
 		return clienteControlador;
@@ -82,4 +89,11 @@ public class BezeroKudeatzailea extends JDialog {
 	public void setProductoControlador(ProductoControlador productoControlador) {
 		this.productoControlador = productoControlador;
 	}
+	public PedidoControlador getPedidoControlador() {
+		return pedidoControlador;
+	}
+	public void setPedidoControlador(PedidoControlador pedidoControlador) {
+		this.pedidoControlador = pedidoControlador;
+	}
+	
 }

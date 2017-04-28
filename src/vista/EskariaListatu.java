@@ -72,7 +72,7 @@ public class EskariaListatu extends JDialog {
 				//lerrotik, guk nahi ditugun zutabearen balioa jaso.
 				int idPedido = (int)tablePedidos.getModel().getValueAt(aukeratutakoLerroa, 0);
 				String idCliente = (String) tablePedidos.getModel().getValueAt(aukeratutakoLerroa, 1);
-				//pedido eta bezeroa erakutsi.(controlador)
+				//detalleak eta bezeroak erakutsi.(controlador)
 				pedidoControlador.eskariarenDatuakErakutsi(idPedido,idCliente);
 				
 			}

@@ -48,7 +48,7 @@ public class BorrarCliente extends JDialog {
 		btnBorrar.setBounds(122, 182, 88, 23);
 		btnBorrar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				clientecontrolador.borrarCliente();
+				//clientecontrolador.borrarCliente();
 			}
 		});
 		contentPanel.setLayout(null);

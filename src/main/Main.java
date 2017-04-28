@@ -9,6 +9,7 @@ import modelo.PedidoModelo;
 import modelo.ProductoModelo;
 import vista.BezeroFormulario;
 import vista.BezeroKudeatzailea;
+import vista.BezeroarenEskariak;
 import vista.BorrarCliente;
 import vista.EskariKudeatzailea;
 import vista.EskariaListatu;
@@ -38,6 +39,7 @@ public class Main {
 		BorrarCliente borrarCliente = new BorrarCliente(bezeroKudeatzailea,true);
 		EskariKudeatzailea eskariKudeatzailea = new EskariKudeatzailea(nagusia,true);
 		EskariaListatu eskariaListatu = new EskariaListatu(eskariKudeatzailea,true);
+		BezeroarenEskariak bezeroarenEskariak = new BezeroarenEskariak(bezeroKudeatzailea,true);
 		//leihoei controladoreak ezarri
 	
 		bezeroFormulario.setClienteControlador(clienteControlador);
@@ -54,6 +56,8 @@ public class Main {
 		borrarCliente.setClientecontrolador(clienteControlador);
 		eskariKudeatzailea.setPedidoControlador(pedidoControlador);
 		eskariaListatu.setPedidoControlador(pedidoControlador);
+		bezeroarenEskariak.setClienteControlador(clienteControlador);
+		bezeroarenEskariak.setPedidoControlador(pedidoControlador);
 		
 		//controladoreei modelo eta lehioak ezarri
 		
@@ -62,6 +66,9 @@ public class Main {
 		clienteControlador.setBezeroKudeatzailea(bezeroKudeatzailea);
 		clienteControlador.setNagusia(nagusia);
 		clienteControlador.setBorrarCliente(borrarCliente);
+		clienteControlador.setBezeroarenEskariak(bezeroarenEskariak);
+		clienteControlador.setPedidoModelo(pedidoModelo);
+		clienteControlador.setDetallesPedidoModelo(detallesPedidoModelo);
 		
 		pedidoControlador.setNagusia(nagusia);
 		pedidoControlador.setEskariKudeatzailea(eskariKudeatzailea);
@@ -69,6 +76,7 @@ public class Main {
 		pedidoControlador.setPedidoModelo(pedidoModelo);
 		pedidoControlador.setDetallesPedidoModelo(detallesPedidoModelo);
 		pedidoControlador.setClienteModelo(clienteModelo);
+		pedidoControlador.setBezeroarenEskariak(bezeroarenEskariak);
 		
 		nagusia.setVisible(true);
 		
